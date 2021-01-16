@@ -25,7 +25,6 @@ public class Main {
 
 			// É uma lista que dentro dela temos um chave que identifica um sequência de valores.
 			HashMap<String, List<Aluno>> mapsAlunos = new HashMap<String, List<Aluno>>();
-
 			int cadastrarMaisAlunos = 0;
 
 			do {
