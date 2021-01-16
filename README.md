@@ -1,0 +1,1 @@
+# Sistema escolar sem banco de dados, implementado com orientação a objetos.
