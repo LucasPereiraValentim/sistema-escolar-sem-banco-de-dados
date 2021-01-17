@@ -57,6 +57,11 @@ public class Diretor extends Pessoa{
 			return false;
 		return true;
 	}
+	@Override
+	public boolean isPessoaMaiorIdade() {
+		return super.idade >= 18;
+	}
+	
 	
 	
 	

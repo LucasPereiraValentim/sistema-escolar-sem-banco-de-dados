@@ -1,6 +1,6 @@
 package com.lucas.orientado.a.objetos.superclasses;
 //Super classe
-public class Pessoa {
+public abstract class Pessoa {
 	protected String nome;
 	protected int idade;
 	protected String dataNascimento;
@@ -46,58 +46,7 @@ public class Pessoa {
 		this.nomeMae = nomeMae;
 	}
 	
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dataNascimento == null) ? 0 : dataNascimento.hashCode());
-		result = prime * result + idade;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((nomeMae == null) ? 0 : nomeMae.hashCode());
-		result = prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode());
-		result = prime * result + ((registroGeral == null) ? 0 : registroGeral.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		if (dataNascimento == null) {
-			if (other.dataNascimento != null)
-				return false;
-		} else if (!dataNascimento.equals(other.dataNascimento))
-			return false;
-		if (idade != other.idade)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (nomeMae == null) {
-			if (other.nomeMae != null)
-				return false;
-		} else if (!nomeMae.equals(other.nomeMae))
-			return false;
-		if (numeroCpf == null) {
-			if (other.numeroCpf != null)
-				return false;
-		} else if (!numeroCpf.equals(other.numeroCpf))
-			return false;
-		if (registroGeral == null) {
-			if (other.registroGeral != null)
-				return false;
-		} else if (!registroGeral.equals(other.registroGeral))
-			return false;
-		return true;
-	}
-	
+	public abstract boolean isPessoaMaiorIdade();
 	
 	
 	

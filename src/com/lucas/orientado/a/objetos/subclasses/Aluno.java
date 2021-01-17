@@ -116,13 +116,22 @@ public class Aluno extends Pessoa{
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.getNome() + " | Idade: " + this.getIdade() + " | Data de nascimento: " + this.getDataNascimento() 
+		return "Nome: " + this.getNome() + " | Idade: " + this.getIdade() + " | Maioridade: " + this.getMessagenPessoaMaior() + " | Data de nascimento: " + this.getDataNascimento() 
 				+ "\nRG: " + this.getRegistroGeral() + " | CPF: " + this.getNumeroCpf() + " | Nome da mãe: " + this.getNomeMae()
 				+ "\nData da matrícula: " + this.getDataMatricula() + " | Nome da escola: " + this.getNomeEscola() + " | Série matriculado: " + this.getSerieMatricula()
 				+ "\nMédia final: " + this.getMediaAluno()
 				+ "\nResultado final: " + this.getAprovarAluno();
 	
 	}
-
+	
+	@Override
+	public boolean isPessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return super.idade >= 21;
+	}
+	
+	public String getMessagenPessoaMaior() {
+		return this.isPessoaMaiorIdade() ? "Aluno(a) maior de idade" : "Aluno(a) menor de idade";
+	}
 		
 }

@@ -42,6 +42,11 @@ public class Professor extends Pessoa{
 	public String toString() {
 		return "Nome do professor(a): " + super.nome + " | Matrícula do professor(a): " + this.matricula;
 	}
+
+	@Override
+	public boolean isPessoaMaiorIdade() {
+		return super.idade >= 18;
+	}
 	
 	
 }
