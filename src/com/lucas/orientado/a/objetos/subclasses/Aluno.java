@@ -103,13 +103,13 @@ public class Aluno extends Pessoa{
 	public String getAprovarAluno() {
 		double media = this.getMediaAluno();
 		
-		if (media >= 50) {
+		if (media >= 50) { //Recuperação
 			if (media >= 70) { //Aprovado
 				return StatusAluno.APROVADO;
 			} else {
 				return StatusAluno.RECUPERACAO;
 			}
-		} else {
+		} else {  // Reprovado
 			return StatusAluno.REPROVADO; 
 		}
 	}

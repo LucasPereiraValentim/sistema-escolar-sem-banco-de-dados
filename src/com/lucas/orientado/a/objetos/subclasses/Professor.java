@@ -1,17 +1,19 @@
 package com.lucas.orientado.a.objetos.subclasses;
 
+import com.lucas.orientado.a.objetos.interfaces.PermitirAcesso;
 import com.lucas.orientado.a.objetos.superclasses.Pessoa;
 
-public class Professor extends Pessoa{
+public class Professor extends Pessoa implements PermitirAcesso{
 	private String matricula;
-
-	public String getMatricula() {
-		return matricula;
-	}
-
+	
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+	
+	public String getMatricula() {
+		return matricula;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -47,6 +49,13 @@ public class Professor extends Pessoa{
 	public boolean isPessoaMaiorIdade() {
 		return super.idade >= 18;
 	}
+
+	@Override
+	public boolean autenticar(String login, String senha) {
+		return login.equals("admin") && senha.equals("admin");
+	}
+
+	
 	
 	
 }

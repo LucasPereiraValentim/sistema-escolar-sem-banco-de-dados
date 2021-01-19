@@ -15,11 +15,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String login = JOptionPane.showInputDialog("Cadastro de Aluno", "Informe seu Login");
 
-		String senhaAdm = JOptionPane.showInputDialog("Cadastro de Aluno", "Informe sua senha");
+		String login = JOptionPane.showInputDialog(null, "Login");
+		String senha = JOptionPane.showInputDialog(null, "Senha");
 
-		if (login.equals("admin") && senhaAdm.equals("123456")) {
+		if (new Professor().autenticar(login, senha)) {
+
+			JOptionPane.showMessageDialog(null, "Bem-vindo ao sistema de cadastro de alunos e notas");
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -204,8 +206,8 @@ public class Main {
 			}
 
 		} else {
-			JOptionPane.showMessageDialog(null, "Senha incorreta!");
+			JOptionPane.showMessageDialog(null, "Acesso negado!");
 		}
-		
+
 	}
 }
