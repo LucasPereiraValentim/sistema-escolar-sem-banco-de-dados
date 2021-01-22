@@ -231,7 +231,7 @@ public class Main {
 
 			e.printStackTrace();
 
-		} finally { // Sempre é excecutado, independente se vai a ver exceção ou não
+		} finally { // Sempre é excecutado, independente se vai haver exceção ou não
 			JOptionPane.showMessageDialog(null, "Sistema escolar encerrado.");
 		}
 	}
