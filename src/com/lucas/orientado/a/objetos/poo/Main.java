@@ -33,33 +33,41 @@ public class Main {
 
 					Aluno aluno = new Aluno();
 
-					aluno.setNome(JOptionPane.showInputDialog(null, "Digite nome do aluno"));
+					aluno.setNome(JOptionPane.showInputDialog(null, "Digite nome do aluno(a)"));
 
-					aluno.setIdade(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite idade do aluno")));
+					aluno.setIdade(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite idade do aluno(a)")));
 					aluno.setDataNascimento(JOptionPane.showInputDialog(null, "Digite data de nascimento"));
-					aluno.setRegistroGeral(JOptionPane.showInputDialog(null, "Digite o RG do aluno"));
-					aluno.setNumeroCpf(JOptionPane.showInputDialog(null, "Digite o número do CPF"));
+					aluno.setRegistroGeral(JOptionPane.showInputDialog(null, "Digite o RG do aluno(a)"));
+					aluno.setNumeroCpf(JOptionPane.showInputDialog(null, "Digite o número do CPF do aluno(a)"));
 					aluno.setNomeMae(JOptionPane.showInputDialog(null, "Digite o nome da Mãe"));
-					aluno.setSerieMatricula(JOptionPane.showInputDialog(null, "Digite o semestre"));
-					aluno.setNomeEscola(JOptionPane.showInputDialog(null, "Digite da instituição"));
+					aluno.setSerieMatricula(JOptionPane.showInputDialog(null, "Digite a serie"));
+					aluno.setNomeEscola(JOptionPane.showInputDialog(null, "Digite nome da instituição"));
 					aluno.setDataMatricula(JOptionPane.showInputDialog(null, "Digite data de matrícula"));
 
 					for (int posicao = 1; posicao <= 4; posicao++) {
 
 						Disciplina disciplina = new Disciplina();
 
-						Professor professor = new Professor();
-
-						professor.setNome(
-								JOptionPane.showInputDialog("Digite o nome do Professor da Disciplina " + posicao));
-
-						professor.setMatricula(JOptionPane
-								.showInputDialog("Digite a Matrícula do professor da disciplina " + posicao));
-
 						disciplina.setDisciplina(JOptionPane.showInputDialog(null, "Nome da Disciplina " + posicao));
 
-						disciplina.setNota(
-								Double.valueOf(JOptionPane.showInputDialog(null, "Digite sua nota " + posicao)));
+						Professor professor = new Professor();
+
+						professor.setNome(JOptionPane.showInputDialog("Digite o nome do professor(a)  da disciplina " + disciplina.getDisciplina()));
+
+						professor.setMatricula(JOptionPane
+								.showInputDialog("Digite a matrícula do professor(a)"));
+
+						double[] notas = new double[4];
+
+						for (int i = 0; i < new Disciplina().getNota().length; i++) {
+
+
+							notas[i] = Double.parseDouble(JOptionPane.showInputDialog(null,
+									"Digite às notas da disciplina " + disciplina.getDisciplina()));
+
+						}
+
+						disciplina.setNotas(notas);
 
 						aluno.getDisciplinas().add(disciplina);
 
@@ -112,26 +120,44 @@ public class Main {
 						Aluno aluno = alunos.get(i);
 						if (aluno.getNome().equalsIgnoreCase(nomeAlunoSubstituir)) {
 							Aluno trocar = new Aluno();
-							trocar.setNome(JOptionPane.showInputDialog(null, "Digite nome do aluno"));
+							trocar.setNome(JOptionPane.showInputDialog(null, "Digite nome do aluno(a)"));
 
 							trocar.setIdade(
-									Integer.parseInt(JOptionPane.showInputDialog(null, "Digite idade do aluno")));
+									Integer.parseInt(JOptionPane.showInputDialog(null, "Digite idade do aluno(a)")));
 							trocar.setDataNascimento(JOptionPane.showInputDialog(null, "Digite data de nascimento"));
-							trocar.setRegistroGeral(JOptionPane.showInputDialog(null, "Digite o RG do aluno"));
+							trocar.setRegistroGeral(JOptionPane.showInputDialog(null, "Digite o RG do aluno(a)"));
 							trocar.setNumeroCpf(JOptionPane.showInputDialog(null, "Digite o número do CPF"));
 							trocar.setNomeMae(JOptionPane.showInputDialog(null, "Digite o nome da Mãe"));
-							trocar.setSerieMatricula(JOptionPane.showInputDialog(null, "Digite o semestre"));
-							trocar.setNomeEscola(JOptionPane.showInputDialog(null, "Digite da instituição"));
+							trocar.setSerieMatricula(JOptionPane.showInputDialog(null, "Digite a serie"));
+							trocar.setNomeEscola(JOptionPane.showInputDialog(null, "Digite nome da instituição"));
 							trocar.setDataMatricula(JOptionPane.showInputDialog(null, "Digite data de matrícula"));
 
-							for (int j = 1; j <= 4; j++) {
+							for (int j = 1; j <= 13; j++) {
+
 								Disciplina disciplina = new Disciplina();
 
+								Professor professor = new Professor();
+								
 								disciplina.setDisciplina(
 										JOptionPane.showInputDialog(null, "Digite o nome da disciplina " + j));
 
-								disciplina.setNota(Double
-										.parseDouble(JOptionPane.showInputDialog(null, "Digite nota do aluno " + j)));
+
+								professor.setNome(JOptionPane.showInputDialog(null, "Digite o nome do professor(a) da disciplina "  +  disciplina.getDisciplina()));
+
+								professor.setMatricula(
+										JOptionPane.showInputDialog(null, "Digite a matrícula do professor(a)"));
+
+								double[] notas = new double[4];
+
+								for (int k = 0; k < disciplina.getNota().length; k++) {
+									notas[k] = Double.parseDouble(
+											JOptionPane.showInputDialog(null, "Digite às notas da disciplina" + disciplina.getDisciplina()));
+								}
+
+								disciplina.setNotas(notas);
+
+								
+								disciplina.getListaProfessores().add(professor);
 
 								trocar.getDisciplinas().add(disciplina);
 

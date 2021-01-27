@@ -1,6 +1,7 @@
 package com.lucas.orientado.a.objetos.poo.classes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.lucas.orientado.a.objetos.subclasses.Professor;
@@ -8,8 +9,7 @@ import com.lucas.orientado.a.objetos.subclasses.Professor;
 //Essas classe servirá para todos os objetos e instâncias de notas e disciplinas.
 public class Disciplina {
 	private String disciplina;
-	private double nota;
-	
+	private double[] notas = new double[4];
 	
 	private List<Professor> listaProfessores = new ArrayList<Professor>();
 	
@@ -31,22 +31,33 @@ public class Disciplina {
 		this.disciplina = disciplina;
 	}
 
-	public double getNota() {
-		return nota;
+	
+
+	public double[] getNota() {
+		return notas;
 	}
 
-	public void setNota(double nota) {
-		this.nota = nota;
+	public void setNotas(double[] notas) {
+		this.notas = notas;
 	}
 
+	public double getCaculoNotas() {
+		double calculoMedia = 0;
+		
+		for (int i = 0; i < notas.length; i++) {
+			calculoMedia += notas[i];
+		}
+		
+		return calculoMedia / 4;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((disciplina == null) ? 0 : disciplina.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(nota);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((listaProfessores == null) ? 0 : listaProfessores.hashCode());
+		result = prime * result + Arrays.hashCode(notas);
 		return result;
 	}
 
@@ -64,14 +75,19 @@ public class Disciplina {
 				return false;
 		} else if (!disciplina.equals(other.disciplina))
 			return false;
-		if (Double.doubleToLongBits(nota) != Double.doubleToLongBits(other.nota))
+		if (listaProfessores == null) {
+			if (other.listaProfessores != null)
+				return false;
+		} else if (!listaProfessores.equals(other.listaProfessores))
+			return false;
+		if (!Arrays.equals(notas, other.notas))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Disciplina: " + this.disciplina + " | Nota: " + this.nota;
+		return "Disciplina: " + this.disciplina + " | Nota 01: " + this.notas[0]  + " | Nota 02: " + this.notas[1] + " | Nota 03: " + this.notas[2] + " | Nota 04: " + this.notas[3]; 
 	}
 
 }
