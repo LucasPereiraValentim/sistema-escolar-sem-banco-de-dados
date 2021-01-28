@@ -52,15 +52,14 @@ public class Main {
 
 						Professor professor = new Professor();
 
-						professor.setNome(JOptionPane.showInputDialog("Digite o nome do professor(a)  da disciplina " + disciplina.getDisciplina()));
+						professor.setNome(JOptionPane.showInputDialog(
+								"Digite o nome do professor(a)  da disciplina " + disciplina.getDisciplina()));
 
-						professor.setMatricula(JOptionPane
-								.showInputDialog("Digite a matrícula do professor(a)"));
+						professor.setMatricula(JOptionPane.showInputDialog("Digite a matrícula do professor(a)"));
 
 						double[] notas = new double[4];
 
 						for (int i = 0; i < new Disciplina().getNota().length; i++) {
-
 
 							notas[i] = Double.parseDouble(JOptionPane.showInputDialog(null,
 									"Digite às notas da disciplina " + disciplina.getDisciplina()));
@@ -137,12 +136,12 @@ public class Main {
 								Disciplina disciplina = new Disciplina();
 
 								Professor professor = new Professor();
-								
+
 								disciplina.setDisciplina(
 										JOptionPane.showInputDialog(null, "Digite o nome da disciplina " + j));
 
-
-								professor.setNome(JOptionPane.showInputDialog(null, "Digite o nome do professor(a) da disciplina "  +  disciplina.getDisciplina()));
+								professor.setNome(JOptionPane.showInputDialog(null,
+										"Digite o nome do professor(a) da disciplina " + disciplina.getDisciplina()));
 
 								professor.setMatricula(
 										JOptionPane.showInputDialog(null, "Digite a matrícula do professor(a)"));
@@ -150,13 +149,12 @@ public class Main {
 								double[] notas = new double[4];
 
 								for (int k = 0; k < disciplina.getNota().length; k++) {
-									notas[k] = Double.parseDouble(
-											JOptionPane.showInputDialog(null, "Digite às notas da disciplina" + disciplina.getDisciplina()));
+									notas[k] = Double.parseDouble(JOptionPane.showInputDialog(null,
+											"Digite às notas da disciplina" + disciplina.getDisciplina()));
 								}
 
 								disciplina.setNotas(notas);
 
-								
 								disciplina.getListaProfessores().add(professor);
 
 								trocar.getDisciplinas().add(disciplina);
@@ -196,6 +194,30 @@ public class Main {
 						System.out.println("\n");
 						System.out.println(disciplina.toString());
 
+						double notaMaxima = 0;
+						double notaMinima = 0;
+
+						for (int i = 0; i < disciplina.getNota().length; i++) {
+							System.out.println("Nota " + (i + 1) + ": " + disciplina.getNota()[i]);
+
+							if (i == 0) {
+								notaMaxima = disciplina.getNota()[i];
+							} else if (disciplina.getNota()[i] > notaMaxima) {
+								notaMaxima = disciplina.getNota()[i];
+							}
+						}
+
+						for (int k = 0; k < disciplina.getNota().length; k++) {
+							if (k == 0) {
+								notaMinima = disciplina.getNota()[k];
+							} else if (disciplina.getNota()[k] < notaMinima) {
+								notaMinima = disciplina.getNota()[k];
+							}
+						}
+						
+						System.out.println("Nota máxima da disciplina " + disciplina.getDisciplina() + ": " + notaMaxima);
+						System.out.println("Nota mínima da disciplina " + disciplina.getDisciplina() + ": " + notaMinima);
+						
 						for (Professor professor : disciplina.getListaProfessores()) {
 							System.out.println(professor.toString());
 						}
@@ -210,6 +232,38 @@ public class Main {
 					for (Disciplina disciplina : aluno.getDisciplinas()) {
 						System.out.println("\n");
 						System.out.println(disciplina.toString());
+						
+						double notaMaxima = 0;
+						double notaMinima = 0;
+						
+						for (int i = 0; i < disciplina.getNota().length; i++) {
+							System.out.println("Nota " + (i + 1) + ": " + disciplina.getNota()[i]);
+							
+							if (i == 0) {
+								notaMaxima = disciplina.getNota()[i];
+							} else if (disciplina.getNota()[i] > notaMaxima) {
+								notaMaxima = disciplina.getNota()[i];
+							}
+							
+							if (i == 0) {
+								notaMinima = disciplina.getNota()[i];
+								
+							} else if (disciplina.getNota()[i] < notaMinima) {
+								notaMinima = disciplina.getNota()[i];
+							}
+							
+						}
+						
+						for (int k = 0; k < disciplina.getNota().length; k++) {
+							if (k == 0) {
+								notaMinima = disciplina.getNota()[k];
+							} else if (disciplina.getNota()[k] < notaMinima) {
+								notaMinima = disciplina.getNota()[k];
+							}
+						}
+						
+						System.out.println("Nota máxima da disciplina " + disciplina.getDisciplina() + ": " + notaMaxima);
+						System.out.println("Nota mínima da disciplina " + disciplina.getDisciplina() + ": " + notaMinima);
 
 						for (Professor professor : disciplina.getListaProfessores()) {
 							System.out.println(professor.toString());
@@ -225,6 +279,37 @@ public class Main {
 					for (Disciplina disciplina : aluno.getDisciplinas()) {
 						System.out.println("\n");
 						System.out.println(disciplina.toString());
+
+						double notaMaxima = 0;
+						double notaMinima = 0;
+						for (int i = 0; i < disciplina.getNota().length; i++) {
+							System.out.println("Nota " + (i + 1) + ": " + disciplina.getNota()[i]);
+
+							if (i == 0) {
+								notaMaxima = disciplina.getNota()[i];
+							} else if (disciplina.getNota()[i] > notaMaxima) {
+								notaMaxima = disciplina.getNota()[i];
+							}
+							
+							if (i == 0) {
+								notaMaxima = disciplina.getNota()[i];
+							} else if (disciplina.getNota()[i] < notaMaxima) {
+								notaMaxima = disciplina.getNota()[i];
+							}
+							
+						}
+						
+						
+						for (int k = 0; k < disciplina.getNota().length; k++) {
+							if (k == 0) {
+								notaMinima = disciplina.getNota()[k];
+							} else if (disciplina.getNota()[k] < notaMinima) {
+								notaMinima = disciplina.getNota()[k];
+							}
+						}
+						
+						System.out.println("Nota máxima da disciplina " + disciplina.getDisciplina() + ": " + notaMaxima);
+						System.out.println("Nota mínima da disciplina " + disciplina.getDisciplina() + ": " + notaMinima);
 
 						for (Professor professor : disciplina.getListaProfessores()) {
 							System.out.println(professor.toString());

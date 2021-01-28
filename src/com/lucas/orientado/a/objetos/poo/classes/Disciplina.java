@@ -41,7 +41,7 @@ public class Disciplina {
 		this.notas = notas;
 	}
 
-	public double getCaculoNotas() {
+	public double getCalculoNotas() {
 		double calculoMedia = 0;
 		
 		for (int i = 0; i < notas.length; i++) {
@@ -87,7 +87,7 @@ public class Disciplina {
 
 	@Override
 	public String toString() {
-		return "Disciplina: " + this.disciplina + " | Nota 01: " + this.notas[0]  + " | Nota 02: " + this.notas[1] + " | Nota 03: " + this.notas[2] + " | Nota 04: " + this.notas[3]; 
+		return "Disciplina: " + this.disciplina; 
 	}
 
 }

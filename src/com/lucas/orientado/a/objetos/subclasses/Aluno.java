@@ -94,7 +94,7 @@ public class Aluno extends Pessoa{
 	public double getMediaAluno() {
 		double media = 0.0;
 		for (Disciplina disciplina : disciplinas) {
-			media += disciplina.getCaculoNotas();
+			media += disciplina.getCalculoNotas();
 		}
 		return media / this.getDisciplinas().size();
 	}
